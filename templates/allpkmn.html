@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for pk in pkmn %}
+      {{ 'Name:' }} {{ pk.name }} <br>
+      {{ 'Nickname:' }} {{ pk.nickname }} <br>
+      {{ 'ID:' }} {{ pk.idNumber }} <br>
+      {{ 'Ability:' }} {{ pk.ability }} <br>
+      {{ 'Moves:' }}
+      {% for mv in pk.moves %}
+            {{ mv.name }}{{ ', '}}
+      {% endfor %}
+      <br>
+      <br>
+{% endfor %}
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}

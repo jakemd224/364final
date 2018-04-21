@@ -1,0 +1,24 @@
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+
+<h3>Description</h3>
+
+This program is designed to allow users to create and add Pokemon with random moves and abilities to their very own teams!
+
+<h3>Navigation</h3>
+<ul>
+    <li><a href="{{ url_for('index')}}">Go to party selection/creation page.</a></li>
+    <li><a href="{{ url_for('upTeams')}}">Go to party update page to add Pokemon.</a></li>
+    <li><a href="{{ url_for('delTeams')}}">Go to party delete page to delete teams.</a></li>
+    <li><a href="{{ url_for('allteams')}}">View all created parties so far.</a></li>
+    <li><a href="{{ url_for('allpkmn')}}">View all added Pokemon so far.</a></li>
+    <li><a href="{{ url_for('allmoves')}}">View all randomly added moves so far.</a></li>
+</ul>
+<p>------------------------------------------------------------------------------------------------------------------------</p>
+
+<h3>Current Page</h3>
+{% block content %}
+{% endblock %}

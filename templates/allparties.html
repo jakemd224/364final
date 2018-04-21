@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for pt in parties %}
+      {{ 'Name:' }} {{ pt.name }} <br>
+      {{ 'Pokemon: ' }}
+      {% for pk in pt.pkmn %}
+            {{ pk.name }}{{ ', '}}
+      {% endfor %}
+      <br>
+      <br>
+{% endfor %}
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+Team so far:
+<br>
+<br>
+{% for pkmn in pt.pkmn %}
+			{{ pkmn.name }} {{ 'named' }} {{ '''"''' }}{{ pkmn.nickname }}{{ '''"''' }}
+			<br>
+			Moves:
+			<br>
+			{% for mv in pkmn.moves %}
+						{{ mv.name }}
+						<br>
+			{% endfor %}
+			<br>
+{% endfor %}
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+  {{ form.nickname.label }} {{ form.nickname() }}
+	{{ form.update() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

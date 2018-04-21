@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if not parties %}
+There are no parties to show.
+
+{% else %}
+
+<ul>
+{% for pt in parties %}
+    <li>
+        {{ pt.name }}
+        <br>
+        {% for pkmn in pt.pkmn %}
+              {{ pkmn.name }} {{ '''"''' }}{{ pkmn.nickname }}{{ '''"''' }}
+              <br>
+        {% endfor %}
+          <form method="POST" action="/delTeam/{{ pt.id }}">
+        	   {{ form.hidden_tag() }}
+             {{ form.delete() }}
+           </form>
+    <br>
+    </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}
