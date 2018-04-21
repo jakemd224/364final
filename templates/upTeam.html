@@ -6,6 +6,8 @@ Team so far:
 {% for pkmn in pt.pkmn %}
 			{{ pkmn.name }} {{ 'named' }} {{ '''"''' }}{{ pkmn.nickname }}{{ '''"''' }}
 			<br>
+			{{ 'Ability:' }} {{ pkmn.ability }}
+			<br>
 			Moves:
 			<br>
 			{% for mv in pkmn.moves %}
